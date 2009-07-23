@@ -28,8 +28,8 @@ endef
 
 $(foreach platform,$(TARGETS),$(eval $(call PLATFORM_rules,$(platform))))
 
-ANDROID_TOOL_PREFIX = C:/android/android-ndk-1.5_r1/build/prebuilt/windows/arm-eabi-4.2.1/bin/arm-eabi-
-ANDROID_NDK_BASE = /android/android-ndk-1.5_r1
+ANDROID_NDK_BASE = /cygdrive/c/android/android-ndk-1.5_r1
+ANDROID_TOOL_PREFIX = $(ANDROID_NDK_BASE)/build/prebuilt/windows/arm-eabi-4.2.1/bin/arm-eabi-
 ANDROID_CFLAGS = -march=armv5te -mtune=xscale -msoft-float -fpic -mthumb-interwork \
 	-ffunction-sections -funwind-tables -fstack-protector -fno-short-enums \
 	-fno-exceptions -fno-rtti \

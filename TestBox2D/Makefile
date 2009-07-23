@@ -7,9 +7,9 @@ OBJS	= $(SOURCES:native/%.cpp=obj/%.o)
 SYMS	= obj/$(LIBNAME)
 LIB		= libs/armeabi/$(LIBNAME)
 
-all:	$(LIB)	
+all:	$(LIB)
 
-ANDROID_NDK_BASE = /android/android-ndk-1.5_r1
+ANDROID_NDK_BASE = /cygdrive/c/android/android-ndk-1.5_r1
 ANDROID_TOOL_PREFIX = $(ANDROID_NDK_BASE)/build/prebuilt/windows/arm-eabi-4.2.1/bin/arm-eabi-
 ANDROID_CFLAGS = -march=armv5te -mtune=xscale -msoft-float -fpic -mthumb-interwork \
 	-ffunction-sections -funwind-tables -fstack-protector -fno-short-enums \
