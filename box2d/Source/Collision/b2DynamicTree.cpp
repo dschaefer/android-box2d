@@ -61,7 +61,7 @@ uint16 b2DynamicTree::AllocateNode()
 	}
 
 	// The free list is empty. Rebuild a bigger pool.
-	int32 newPoolCount = b2Min(2 * m_nodeCount, USHRT_MAX - 1);
+	int32 newPoolCount = b2Min(2 * m_nodeCount, (int)USHRT_MAX - 1);
 	b2Assert(newPoolCount > m_nodeCount);
 	b2DynamicTreeNode* newPool = (b2DynamicTreeNode*)b2Alloc(newPoolCount * sizeof(b2DynamicTreeNode));
 	memcpy(newPool, m_nodes, m_nodeCount * sizeof(b2DynamicTreeNode));
