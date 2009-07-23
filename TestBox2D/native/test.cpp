@@ -1,4 +1,5 @@
 /*
+* Copyright (c) 2006-2007 Erin Catto http://www.gphysics.com
 * Copyright (c) 2009 Doug Schaefer
 *
 * This software is provided 'as-is', without any express or implied

@@ -72,6 +72,8 @@ class Fixed {
 		Fixed& operator =(int a);
 		Fixed& operator =(long a);
 	
+		int raw() { return g; }
+
 		operator float();
 		operator double();
 		operator int();
