@@ -1,4 +1,4 @@
-CFLAGS	=	-O2 -DTARGET_FLOAT32_IS_FIXED -IInclude 
+CFLAGS	=	-O2 -DTARGET_FLOAT32_IS_FIXED -IInclude -Iandroid 
 
 TARGETS =	android
 
