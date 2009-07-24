@@ -1,7 +1,15 @@
 This is Doug's port of the Box2D framework to the Android NDK. It is also a showcase of how to use the CDT with the regular Android Java plugins for native development.
 
-To import the projects properly, you need to install the CDT into your regular Eclipse install. Galileo is highly recommended for this (and is what I use).
+To import the projects properly, you need to install the CDT into your regular Eclipse install. Galileo is highly recommended for this (and is what I use). I've only tested this on Windows but it should work on other platforms as well.
 
 The Makefiles assume the NDK is installed under C:/Android. Change the ANDROID_NDK_BASE build macro if it is not. Also the CDT adds C:/cygwin/bin to the PATH environment variable. This can be changed in the C/C++ Build settings under Environment.
+
+To set up your own Android project for native development, do these steps:
+
+- Use New->Convert to C/C++ Project wizard to add CDT support to your Android project
+- Copy Makefile from TestBox2D project into root directory.
+- Add native, obj, and lib folders to your project
+- In project properties under C/C++ General, Paths and Symbols, set native as your Source folder and obj and lib as Output folders. This keeps the Project Navigator view sane.
+- Build, Run/Debug, Enjoy.
 
 Contact me if you need any help and I'll update this README with better instructions.

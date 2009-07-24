@@ -1,3 +1,3 @@
-#Thu Jul 23 17:13:47 EDT 2009
+#Fri Jul 24 12:08:03 EDT 2009
 eclipse.preferences.version=1
-environment/project/0.864074478=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<environment append\="true" appendContributed\="true">\r\n<variable delimiter\=";" name\="Path" operation\="replace" value\="C\:/cygwin/bin;C\:/Program Files (x86)/Java/jre6/bin/client;C\:/Program Files (x86)/Java/jre6/bin;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\msys\\bin;C\:\\Program Files (x86)\\Git\\cmd;C\:\\Program Files (x86)\\7-Zip;C\:\\Program Files (x86)\\TortoiseSVN\\bin;C\:\\Program Files\\TortoiseSVN\\bin"/>\r\n</environment>\r\n
+environment/project/0.864074478=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<environment append\="true" appendContributed\="true">\r\n<variable delimiter\=";" name\="Path" operation\="replace" value\="C\:\\cygwin\\bin;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem"/>\r\n</environment>\r\n
