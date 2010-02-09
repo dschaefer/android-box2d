@@ -9,13 +9,19 @@ LIB		= libs/armeabi/$(LIBNAME)
 
 all:	$(LIB)
 
-ANDROID_NDK_BASE = /cygdrive/c/android/android-ndk-1.5_r1
-ANDROID_TOOL_PREFIX = $(ANDROID_NDK_BASE)/build/prebuilt/windows/arm-eabi-4.2.1/bin/arm-eabi-
+ifeq ($(shell uname),Linux)
+ANDROID_NDK_BASE = $(HOME)/android/android-ndk-1.6_r1
+ANDROID_PLAT=linux-x86
+else # windows
+ANDROID_NDK_BASE = /cygdrive/c/android/android-ndk-1.6_r1
+ANDROID_PLAT=windows
+endif
+ANDROID_TOOL_PREFIX = $(ANDROID_NDK_BASE)/build/prebuilt/$(ANDROID_PLAT)/arm-eabi-4.2.1/bin/arm-eabi-
 ANDROID_CFLAGS = -march=armv5te -mtune=xscale -msoft-float -fpic -mthumb-interwork \
 	-ffunction-sections -funwind-tables -fstack-protector -fno-short-enums \
 	-fno-exceptions -fno-rtti \
 	-D__ARM_ARCH_5__ -D__ARM_ARCH_5T__ -D__ARM_ARCH_5E__ -D__ARM_ARCH_5TE__ -DANDROID -O2 -DNDEBUG -g \
-	-I$(ANDROID_NDK_BASE)/build/platforms/android-1.5/arch-arm/usr/include
+	-I$(ANDROID_NDK_BASE)/build/platforms/android-3/arch-arm/usr/include
 
 $(LIB):	$(SYMS)
 	@mkdir -p $(dir $@)
@@ -26,9 +32,9 @@ $(SYMS):	$(OBJS)
 	$(ANDROID_TOOL_PREFIX)ld \
 		-nostdlib -shared -Bsymbolic --no-undefined \
 		-o $(SYMS) $(OBJS) $(LIBS) \
-		-L$(ANDROID_NDK_BASE)/build/platforms/android-1.5/arch-arm/usr/lib \
+		-L$(ANDROID_NDK_BASE)/build/platforms/android-3/arch-arm/usr/lib \
 		-llog -lc -lstdc++ -lm \
-		$(ANDROID_NDK_BASE)/build/prebuilt/windows/arm-eabi-4.2.1/lib/gcc/arm-eabi/4.2.1/interwork/libgcc.a \
+		$(ANDROID_NDK_BASE)/build/prebuilt/$(ANDROID_PLAT)/arm-eabi-4.2.1/lib/gcc/arm-eabi/4.2.1/interwork/libgcc.a \
 
 obj/%.o:	native/%.cpp
 	@mkdir -p $(dir $@)

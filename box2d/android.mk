@@ -28,13 +28,19 @@ endef
 
 $(foreach platform,$(TARGETS),$(eval $(call PLATFORM_rules,$(platform))))
 
-ANDROID_NDK_BASE = /cygdrive/c/android/android-ndk-1.5_r1
-ANDROID_TOOL_PREFIX = $(ANDROID_NDK_BASE)/build/prebuilt/windows/arm-eabi-4.2.1/bin/arm-eabi-
+ifeq ($(shell uname),Linux)
+ANDROID_NDK_BASE = $(HOME)/android/android-ndk-1.6_r1
+ANDROID_PLAT=linux-x86
+else # windows
+ANDROID_NDK_BASE = /cygdrive/c/android/android-ndk-1.6_r1
+ANDROID_PLAT=windows
+endif
+ANDROID_TOOL_PREFIX = $(ANDROID_NDK_BASE)/build/prebuilt/$(ANDROID_PLAT)/arm-eabi-4.2.1/bin/arm-eabi-
 ANDROID_CFLAGS = -march=armv5te -mtune=xscale -msoft-float -fpic -mthumb-interwork \
 	-ffunction-sections -funwind-tables -fstack-protector -fno-short-enums \
 	-fno-exceptions -fno-rtti \
 	-D__ARM_ARCH_5__ -D__ARM_ARCH_5T__ -D__ARM_ARCH_5E__ -D__ARM_ARCH_5TE__ -DANDROID -O2 -DNDEBUG -g \
-	-I$(ANDROID_NDK_BASE)/build/platforms/android-1.5/arch-arm/usr/include
+	-I$(ANDROID_NDK_BASE)/build/platforms/android-3/arch-arm/usr/include
 
 android:	TOOL_PREFIX = $(ANDROID_TOOL_PREFIX)
 android:	CFLAGS += $(ANDROID_CFLAGS)
